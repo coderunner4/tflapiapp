@@ -25,21 +25,21 @@ Here is how to run
 
 If everything is configured, you should see following output:
 ```
-Get Road by Id A40
 The status of the A40 is as follows
          Road Status is Good
          Road Status Description is No Exceptional Delays
 ```
-
 Now, test by provinding an invalid road id such as `A333`
 
 ` dotnet run --project RoadStatus A333`
 
 If everything is configured, you should see following output:
 ```
-Get Road by Id A333
 Error: A333 is not a valid road
 ```
+If application has exit without error, it would should return 0. Otherwise, it should return a non-zero exit code. 
+Using following command to get application exit code:
+`echo $lastexitcode`
 
 ## How to run any tests that you have written
 Here is how to test
