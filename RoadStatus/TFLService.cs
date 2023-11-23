@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 
 namespace RoadStatus
 {
-    public class TFLService
+    public class TFLService : ITFLService
     {
         public async Task<List<Road>> GetRoadAsync(string roadid)
         {   
