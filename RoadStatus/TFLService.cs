@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.Http.Headers;
 
 namespace RoadStatus
@@ -16,7 +17,7 @@ namespace RoadStatus
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            Console.WriteLine($"Get Road by Id {roadid}");
+            Debug.WriteLine($"Get Road by Id {roadid}");
             HttpResponseMessage response = await client.GetAsync(qry);
             // response.EnsureSuccessStatusCode(); //enabling this throw exception for all failours
             if (response.IsSuccessStatusCode)
