@@ -61,3 +61,7 @@ The code use following external packages,
 
 These should already been downloaded by dotnet run commands. However, if you find issues, please download manually 
 
+## TODOs
+The code was completed as PoC and hence further improvements needed on following areas
+- Full code documentation including TDD documentation
+- Create C# Interface for TFLService for better testability and maintainability
