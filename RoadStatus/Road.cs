@@ -2,6 +2,9 @@ using Newtonsoft.Json;
 
 namespace RoadStatus
 {
+    /// <summary>
+    /// This DTO (Data Transfer Object) represents Road Enity in TFL Api
+    /// </summary>
     [Serializable]
     public class Road
     {

@@ -9,9 +9,11 @@ namespace RoadStatus
         {   
             List<Road> roads = new List<Road>();
 
+            // Construct the url for road endpoint, fill api_host and api_key from global vars 
             var roadendpoint_url = $"{Consts.TFL_API_HOST}/road/{roadid}";
             var qry = $"?app_id=myapp&api_key={Consts.TFL_API_KEY}";
 
+            // Construct the httpclient with json content type
             using var client = new HttpClient();
             client.BaseAddress = new Uri(roadendpoint_url);
             client.DefaultRequestHeaders.Accept.Clear();
@@ -19,9 +21,10 @@ namespace RoadStatus
 
             Debug.WriteLine($"Get Road by Id {roadid}");
             HttpResponseMessage response = await client.GetAsync(qry);
-            // response.EnsureSuccessStatusCode(); //enabling this throw exception for all failours
+            // response.EnsureSuccessStatusCode(); //Enabling this throw exception for any failour which is not required for now
             if (response.IsSuccessStatusCode)
             {
+                // Read the response message string and convert to list of roads 
                 var jsonString = await response.Content.ReadAsStringAsync();
                 var obj = Utils.DeserializeList<Road>(jsonString).ToList();
                 if(obj != null){
@@ -29,6 +32,8 @@ namespace RoadStatus
                 }
             }
             else{
+                // Read the failure response message and covert to generic exception to be thrown 
+                // for other services to handle errors accordingly
                 var jsonString = await response.Content.ReadAsStringAsync();
                 var obj = Utils.DeserializeObject<TFLServiceException>(jsonString);
                 if(obj != null){

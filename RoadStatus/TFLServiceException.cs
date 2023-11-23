@@ -2,6 +2,9 @@ using Newtonsoft.Json;
 
 namespace RoadStatus
 {
+    /// <summary>
+    /// This object encapulates the expection messge returned by TFL Api
+    /// </summary>
     [Serializable]
     public class TFLServiceException
     {
