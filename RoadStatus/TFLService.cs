@@ -10,12 +10,10 @@ namespace RoadStatus
             List<Road> roads = new List<Road>();
 
             // Construct the url for road endpoint, fill api_host and api_key from global vars 
-            var roadendpoint_url = $"{Consts.TFL_API_HOST}/road/{roadid}";
-            var qry = $"?app_id=myapp&api_key={Consts.TFL_API_KEY}";
+            var qry = $"/road/{roadid}?app_id=myapp&api_key={Consts.TFL_API_KEY}";
 
             // Construct the httpclient with json content type
-            using var client = new HttpClient();
-            client.BaseAddress = new Uri(roadendpoint_url);
+            var client = Consts.HttpClient;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
