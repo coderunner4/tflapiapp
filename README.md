@@ -11,6 +11,8 @@ public readonly static string TFL_API_KEY = "your_api_key";
 public readonly static string TFL_API_HOST = "https://api.tfl.gov.uk";        
 ```
 
+You only need to configure `api_key`, the other parameter of `app_key` is hardcoded for now and with new documentation, its no longer needed, see https://techforum.tfl.gov.uk/t/where-to-find-app-id/1640 
+
 ## How to build the code
 Here is how to build, please ensure to run command from main directory where you find `.sln` file
 
